@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/faq.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
