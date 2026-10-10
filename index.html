@@ -127,6 +127,15 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 .rkx-top{background:var(--ink);color:var(--sheet);padding:34px 0 30px;background-image:repeating-linear-gradient(90deg,transparent 0 55px,rgba(251,248,241,.06) 55px 56px)}
 .rkx-brand{display:inline-flex;align-items:center;gap:10px;font-size:.84rem;font-weight:700;letter-spacing:.08em;color:#E8DFCB}
 .rkx-brand::before{content:"";width:22px;height:22px;border:1px solid #E8DFCB;background:repeating-linear-gradient(90deg,transparent 0 4px,#E8DFCB 4px 5px)}
+.rkx-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px}
+.rkx-pages{min-width:0;max-width:100%}
+.rkx-pages ul{list-style:none;display:flex;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;border:1px solid rgba(232,223,203,.4)}
+.rkx-pages ul::-webkit-scrollbar{display:none}
+.rkx-pages li{flex:none}
+.rkx-pages li + li{border-left:1px solid rgba(232,223,203,.4)}
+.rkx-pages a{display:flex;align-items:center;min-height:40px;padding:0 14px;color:#E8DFCB;font-size:.84rem;font-weight:700;text-decoration:none;white-space:nowrap}
+.rkx-pages a:hover,.rkx-pages a:focus-visible{color:var(--point)}
+.rkx-pages a[aria-current="page"]{background:var(--point);color:var(--ink)}
 .rkx-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px 40px;align-items:end;margin-top:18px}
 .rkx-top h1{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.25;font-weight:800}
 .rkx-desc{margin-top:12px;font-size:.98rem;color:#E8DFCB;max-width:36em}
@@ -152,7 +161,7 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 .rkx-nav-cta:hover,.rkx-nav-cta:focus-visible{background:var(--point);color:var(--ink)}
 .rkx-sep{height:26px;background:var(--ink);background-image:repeating-linear-gradient(90deg,transparent 0 55px,rgba(251,248,241,.18) 55px 56px),linear-gradient(transparent 12px,rgba(251,248,241,.18) 12px 13px,transparent 13px)}
 .rkx-foot{background:var(--ink);color:#E8DFCB;padding:44px 0 28px;font-size:.9rem}
-.rkx-foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:26px 36px;border-top:4px double #E8DFCB;padding-top:26px}
+.rkx-foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:26px 36px;border-top:4px double #E8DFCB;padding-top:26px}
 .rkx-foot-name{font-family:var(--serif);font-weight:800;font-size:1.15rem;color:var(--sheet)}
 .rkx-foot p + p{margin-top:8px}
 .rkx-foot-k{font-weight:800;color:var(--sheet);margin-bottom:8px;font-size:.84rem;letter-spacing:.04em}
@@ -260,6 +269,10 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 .rkc-table td{grid-template-columns:6.2em minmax(0,1fr)}
 }
 .rkc-card > .rkc-btn{margin:16px 18px 0}
+.rkc-more{margin-top:28px;display:flex;justify-content:flex-end}
+.rkc-more .rkc-btn{padding:10px 22px}
+.rkd-more{margin-top:28px;display:flex;justify-content:flex-end}
+@media (max-width:719px){.rkc-more .rkc-btn,.rkd-more .rkd-link{width:100%;justify-content:center}}
 @media (max-width:374px){.rkc-card > .rkc-btn{margin:14px 14px 0}}
 :where(.rk-cards) *,:where(.rk-cards) *::before,:where(.rk-cards) *::after{box-sizing:border-box;margin:0;padding:0}
 .rk-cards{--paper:#F3EEE3;--sheet:#FBF8F1;--ink:#1E1C19;--moss:#3F5B52;--rule:#CBBFA8;--point:#D1932A;--sans:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;--serif:"AppleMyungjo","Nanum Myeongjo","Noto Serif KR",serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--sheet);color:var(--ink);font-family:var(--sans);line-height:1.7;word-break:keep-all;overflow-wrap:break-word;padding:64px 0 72px;scroll-margin-top:72px}
@@ -488,7 +501,16 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 <body>
 <header class="rkx-top" id="top">
 <div class="rkx-in">
+<div class="rkx-bar">
 <p class="rkx-brand">rkt.trip-offer.co.kr</p>
+<nav class="rkx-pages" aria-label="페이지 메뉴">
+<ul>
+<li><a href="./" aria-current="page">홈</a></li>
+<li><a href="coupon/">라쿠텐트래블 쿠폰</a></li>
+<li><a href="promotions/">라쿠텐트래블 일본 숙소 할인 일정</a></li>
+</ul>
+</nav>
+</div>
 <div class="rkx-grid">
 <div>
 <h1>라쿠텐 트래블 할인코드</h1>
@@ -749,6 +771,7 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 </div>
 
 <p class="rkc-note">엔화 금액의 원화 환산은 100엔 860원으로 계산했습니다. 할인코드와 할인쿠폰을 한 예약에 함께 쓸 수 있는지는 <a href="#faq">라쿠텐 트래블 할인코드 참고사항 및 FAQ</a>에서 항목별로 정리합니다.</p>
+<p class="rkc-more"><a class="rkc-btn" href="promotions/">라쿠텐트래블 일본 숙소 할인 일정 전체 보기</a></p>
 </div>
 </section>
 <div class="rkx-sep" aria-hidden="true"></div>
@@ -956,6 +979,7 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 </div>
 </div>
 
+<p class="rkd-more"><a class="rkd-link" href="coupon/">라쿠텐트래블 쿠폰 전체 보기</a></p>
 </div>
 </section>
 <div class="rkx-sep" aria-hidden="true"></div>
@@ -1231,7 +1255,7 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 .upd-log-list li{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-top:1px solid rgba(var(--upd-rgb),.14)}
 .upd-log-list li:first-child{border-top:0}
 .upd-log-list time{flex:0 0 auto;font:800 12.5px/1.6 ui-monospace,Menlo,Consolas,monospace;color:var(--upd-c)}
-.upd-log-list p{font-size:14px;line-height:1.6}
+.upd-log-list p{font-size:14px;line-height:1.6;min-width:0;overflow-wrap:anywhere}
 @media (max-width:640px){.upd-log-title{font-size:19px}.upd-log-list li{flex-direction:column;gap:2px}}
 </style>
 </main>
@@ -1259,6 +1283,20 @@ body{margin:0;background:#F3EEE3;color:#1E1C19;-webkit-text-size-adjust:100%}
 <li><a href="https://app.ac/YbwMP3l13" target="_blank" rel="nofollow sponsored noopener">라쿠텐 트래블 예약하기</a></li>
 </ul>
 </div>
+<!--@FOOTER-LINKS-->
+<div>
+<p class="rkx-foot-k">다른 할인코드</p>
+<ul>
+<li><a href="tripcom/">트립닷컴 할인코드</a></li>
+<li><a href="klook/">클룩 할인코드</a></li>
+<li><a href="agoda/">아고다 할인코드</a></li>
+<li><a href="myrealtrip/">마이리얼트립 할인코드</a></li>
+<li><a href="hotelscom/">호텔스닷컴 할인코드</a></li>
+<li><a href="kkday/">kkday 할인코드</a></li>
+<li><a href="usimsa/">유심사 할인쿠폰</a></li>
+</ul>
+</div>
+<!--@/FOOTER-LINKS-->
 </div>
 <div class="rkx-foot-bar">
 <span>© 2026 라쿠텐 트래블 할인코드 · rkt.trip-offer.co.kr</span>
